@@ -1,0 +1,27 @@
+[
+    {
+      "image": "assets/img/package-1.jpg",
+      "location": "Thailand",
+      "duration": "3 days",
+      "people": "2 Person",
+      "price": "$149.00",
+      "description": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos"
+    },
+    {
+      "image": "assets/img/package-2.jpg",
+      "location": "Indonesia",
+      "duration": "3 days",
+      "people": "2 Person",
+      "price": "$139.00",
+      "description": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos"
+    },
+    {
+      "image": "assets/img/package-3.jpg",
+      "location": "Malaysia",
+      "duration": "3 days",
+      "people": "2 Person",
+      "price": "$189.00",
+      "description": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos"
+    }
+  ]
+  
