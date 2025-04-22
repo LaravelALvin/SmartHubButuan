@@ -21,6 +21,7 @@ import Education from './pages/Education'
 import EmergencyServices from './pages/EmergencyServices'
 import GovernmentServices from './pages/GovernmentServices'
 import Search from './pages/Search'
+import ViewContent from "./pages/ViewContent";
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Route path='Emergency-Services' element={<EmergencyServices/>}/>
         <Route path='Government-Services' element={<GovernmentServices/>}/>
         <Route path='/search' element={<Search/>}/>
+        <Route path="/view/:name" element={<ViewContent />} />
         <Route path='*' element={<Error />} />
         </Routes>
         <Footer />

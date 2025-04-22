@@ -151,137 +151,141 @@ export default function Home() {
       </div>
     </div>
      About End */}
-    {/* Service Start */}
-    <div className="container-xxl py-5">
-      <div className="container">
-        <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h1 className="mb-5">Our Services</h1>
-        </div>
-        <div className="row g-4">
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-        <Link to="/Food-and-Dining">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+  {/* Service Start */}
+<div className="container-xxl py-5">
+  <div className="container">
+    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h1 className="mb-3">Our Services</h1>
+    </div>
+    <div className="row g-4">
+
+      {/* Food and Dining Service */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Food-and-Dining" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-cutlery txt-blue mb-4" />
               <h3>Food and Dining</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Explore a variety of dining options in the area, ranging from local delicacies to international cuisine.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-        <Link to="/Hotel-and-Lodging">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Hotel and Lodging Service */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Hotel-and-Lodging" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-hotel txt-blue mb-4" />
               <h3>Hotel and Lodging</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Find the best places to stay, whether you're looking for luxury, comfort, or budget-friendly accommodations.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-        <Link to="/Medical-Services">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Medical Services */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Medical-Services" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-hospital txt-blue mb-4" />
               <h3>Medical Services</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Access healthcare services with ease, including hospitals, clinics, and emergency medical assistance.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-        <Link to="/Public-Transportation">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Public Transportation */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Public-Transportation" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-taxi txt-blue mb-4" />
               <h3>Public Transportation</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Easily navigate the city with reliable and convenient public transport options like buses, taxis, and more.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-        <Link to="/Education">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Education */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Education" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-graduation-cap txt-blue mb-4" />
               <h3>Education</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Access top-quality educational institutions and resources to foster learning and skill development.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-        <Link to="/Emergency-Services">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Emergency Services */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Emergency-Services" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-triangle-exclamation txt-blue mb-4" />
               <h3>Emergency Services</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Immediate access to emergency services and rescue operations when you need them most.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-        <Link to="/Government-Services">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1">
+      {/* Government Services */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/Government-Services" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1">
               <i className="fa fa-3x fa-building-columns txt-blue mb-4" />
               <h3>Government Services</h3>
-              <p className="txt-black">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
+              <p className="txt-black flex-grow-1">
+                Connect with various government departments for essential services like permits, registration, and more.
               </p>
             </div>
           </div>
         </Link>
       </div>
 
-      <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-        <Link to="/about">
-          <div className="service-item rounded pt-3 d-flex flex-column">
-            <div className="p-4 flex-grow-1 text-center">
+      {/* About */}
+      <div className="col-lg-3 col-sm-6 d-flex">
+        <Link to="/about" className="w-100">
+          <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+            <div className="p-4 d-flex flex-column flex-grow-1 text-center">
               <img
-                src="assets/img/Butuan_Logo_Transparent.webp"  // Replace with your logo's path
+                src="assets/img/Butuan_Logo_Transparent.webp"
                 alt="Government Services Logo"
-                className="img-fluid rounded-circle"
-                style={{ width: '100%', height: '190px', objectFit: 'contain' }}  // Ensure it’s circular
+                className="img-fluid rounded-circle mx-auto mb-3"
+                style={{ width: '100%', height: '210px', objectFit: 'contain' }}
               />
             </div>
           </div>
         </Link>
       </div>
 
-        </div>
-      </div>
     </div>
-    {/* Service End */}
+  </div>
+</div>
+{/* Service End */}
+
+
     {/* Destination Start 
     <div className="container-xxl py-5 destination">
       <div className="container">

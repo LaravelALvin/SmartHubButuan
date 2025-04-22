@@ -33,16 +33,29 @@ body {
     border: none;
 }
 
-
-.btn-blue{
-    background: var(--primary);
-    color: #FFFFFF;
+.bg-open{
+    background: #03c927;
 }
 
-.btn-blue:hover{
-    background: var(--secondary);
-    color: black;
+.bg-close{
+    background: #f30202;
 }
+
+
+.btn-blue {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .btn-blue:hover,
+  .btn-blue:focus {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    box-shadow: none;
+  }
+
 
 .txt-blue{
     color: var(--primary);
@@ -135,6 +148,42 @@ h6 {
     transition: .5s;
     background-color: var(--primary);
 }
+
+.btn-delete {
+    background-color: #FF4D4D;
+    color: #FFFFFF;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 9999px; /* pill-shaped */
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+  }
+  
+  .btn-delete:hover {
+    background-color: #e63939;
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4);
+    transform: scale(1.05);
+  }
+  
+  .btn-save {
+    background-color: var(--secondary);
+    color: #FFFFFF;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 9999px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+  }
+  
+  .btn-save:hover {
+    background-color: #358dd1; /* fallback if var(--secondary) is blueish */
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(53, 141, 209, 0.4);
+    transform: scale(1.05);
+  }
+  
+
 
 .btn.btn-primary,
 .btn.btn-secondary {
@@ -561,4 +610,29 @@ a:hover{
     max-width: 400px;
     width: 90%;
   }
+
+  .image-container {
+    flex: 0 0 40%;
+  }
+  
+  .details-container {
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 2rem 1rem;
+    }
+  
+    .image-container {
+      flex: 0 0 100%;
+      text-align: center;
+    }
+  
+    .details-container {
+      flex: 1;
+      padding-left: 0;
+    }
+  }
+  
   

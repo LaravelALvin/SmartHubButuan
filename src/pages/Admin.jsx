@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { getAuth, updatePassword, updateEmail, signOut, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 
 function Admin() {
@@ -116,79 +117,145 @@ function Admin() {
   return (
     <div>
       {/* Service Start */}
+        {/* Service Start */}
       <div className="container-xxl py-5">
         <div className="container">
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-        
+            <h1 className="mb-3">Our Services</h1>
           </div>
           <div className="row g-4">
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="service-item rounded pt-3" onClick={handleNavigateFoodDining} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-cutlery txt-blue mb-4" />
-                  <h5>Food and Dining</h5>
+      
+            {/* Food and Dining Service */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Food-and-Dining" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-cutlery txt-blue mb-4" />
+                    <h3>Food and Dining</h3>
+                    <p className="txt-black flex-grow-1">
+                      Explore a variety of dining options in the area, ranging from local delicacies to international cuisine.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="service-item rounded pt-3" onClick={handleHotel} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-hotel txt-blue mb-4" />
-                  <h5>Hotel and Lodging</h5>
+      
+            {/* Hotel and Lodging Service */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Hotel-and-Lodging" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-hotel txt-blue mb-4" />
+                    <h3>Hotel and Lodging</h3>
+                    <p className="txt-black flex-grow-1">
+                      Find the best places to stay, whether you're looking for luxury, comfort, or budget-friendly accommodations.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-              <div className="service-item rounded pt-3" onClick={handleMedical} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-hospital txt-blue mb-4" />
-                  <h5>Medical Services</h5>
+      
+            {/* Medical Services */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Medical-Services" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-hospital txt-blue mb-4" />
+                    <h3>Medical Services</h3>
+                    <p className="txt-black flex-grow-1">
+                      Access healthcare services with ease, including hospitals, clinics, and emergency medical assistance.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-              <div className="service-item rounded pt-3" onClick={handleTranspo} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-taxi txt-blue mb-4" />
-                  <h5>Public Transportation</h5>
+      
+            {/* Public Transportation */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Public-Transportation" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-taxi txt-blue mb-4" />
+                    <h3>Public Transportation</h3>
+                    <p className="txt-black flex-grow-1">
+                      Easily navigate the city with reliable and convenient public transport options like buses, taxis, and more.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="service-item rounded pt-3" onClick={handleEducation} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-graduation-cap txt-blue mb-4" />
-                  <h5>Education</h5>
+      
+            {/* Education */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Education" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-graduation-cap txt-blue mb-4" />
+                    <h3>Education</h3>
+                    <p className="txt-black flex-grow-1">
+                      Access top-quality educational institutions and resources to foster learning and skill development.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="service-item rounded pt-3" onClick={handleEmergency} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-triangle-exclamation txt-blue mb-4" />
-                  <h5>Emergency Services</h5>
+      
+            {/* Emergency Services */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Emergency-Services" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-triangle-exclamation txt-blue mb-4" />
+                    <h3>Emergency Services</h3>
+                    <p className="txt-black flex-grow-1">
+                      Immediate access to emergency services and rescue operations when you need them most.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="service-item rounded pt-3" onClick={handleGovernment} style={{ cursor: 'pointer' }}>
-                <div className="p-4">
-                  <i className="fa fa-3x fa-building-columns txt-blue mb-4" />
-                  <h5>Government Services</h5>
+      
+            {/* Government Services */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/Government-Services" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1">
+                    <i className="fa fa-3x fa-building-columns txt-blue mb-4" />
+                    <h3>Government Services</h3>
+                    <p className="txt-black flex-grow-1">
+                      Connect with various government departments for essential services like permits, registration, and more.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
+      
+            {/* About */}
+            <div className="col-lg-3 col-sm-6 d-flex">
+              <Link to="/about" className="w-100">
+                <div className="service-item rounded pt-3 h-100 d-flex flex-column">
+                  <div className="p-4 d-flex flex-column flex-grow-1 text-center">
+                    <img
+                      src="assets/img/Butuan_Logo_Transparent.webp"
+                      alt="Government Services Logo"
+                      className="img-fluid rounded-circle mx-auto mb-3"
+                      style={{ width: '100%', height: '210px', objectFit: 'contain' }}
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
+      
           </div>
-
           {/* Buttons for Change Info */}
           <div className="mt-5 text-left">
-            <button className="btn btn-primary me-3" onClick={() => setShowChangePassword(true)}>Change Password</button>
-            <button className="btn btn-secondary me-3" onClick={() => setShowChangeEmail(true)}>Change Email</button>            
+              <button className="btn btn-primary me-3" onClick={() => setShowChangePassword(true)}>Change Password</button>
+              <button className="btn btn-secondary me-3" onClick={() => setShowChangeEmail(true)}>Change Email</button>            
           </div>
         </div>
       </div>
       {/* Service End */}
-
+       
       {/* Modal for Password Change */}
       {showChangePassword && (
         <div className="modal fade show d-block" tabIndex="-1" style={{ background: 'rgba(0,0,0,0.5)' }}>
@@ -206,8 +273,8 @@ function Admin() {
                 {loading && <p className="text-muted">Processing...</p>}
               </div>
               <div className="modal-footer">
-                <button className="btn btn-secondary" onClick={() => setShowChangePassword(false)}>Cancel</button>
-                <button className="btn btn-primary" onClick={handlePasswordChange} disabled={!oldPassword || !newPassword || !confirmPassword || loading}>Update</button>
+                <button className="btn btn-delete" onClick={() => setShowChangePassword(false)}>Cancel</button>
+                <button className="btn btn-save" onClick={handlePasswordChange} disabled={!oldPassword || !newPassword || !confirmPassword || loading}>Update</button>
               </div>
             </div>
           </div>
@@ -231,8 +298,8 @@ function Admin() {
                 )}
               </div>
               <div className="modal-footer">
-                <button className="btn btn-secondary" onClick={() => setShowChangeEmail(false)}>Cancel</button>
-                <button className="btn btn-primary" onClick={handleEmailChange} disabled={!newEmail || !otp || loading}>Update</button>
+                <button className="btn btn-delete" onClick={() => setShowChangeEmail(false)}>Cancel</button>
+                <button className="btn btn-save" onClick={handleEmailChange} disabled={!newEmail || !otp || loading}>Update</button>
               </div>
             </div>
           </div>
