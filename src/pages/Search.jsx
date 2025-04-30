@@ -191,7 +191,7 @@ function Search() {
                       <small className="flex-fill text-center border-end py-2"><i className="fa fa-calendar-alt text-primary me-2" />{pkg.duration}</small>
                     </div>
                     <div className="text-center p-4 flex-grow-1">
-                      <h3 className="mb-0">{pkg.Name}</h3>
+                      <h3 className="mb-0">{pkg.name}</h3>
                       <h3 className="mb-0">{pkg.contact}</h3>
                       <p className="description" style={{
                         textOverflow: "ellipsis",
