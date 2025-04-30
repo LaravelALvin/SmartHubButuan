@@ -1,57 +1,72 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { auth } from './Firebase'; // adjust the path if needed
+import { auth } from './Firebase'; // Adjust path if needed
 
 function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loginError, setLoginError] = useState('');
+  const [shake, setShake] = useState(false);
+
   const navigate = useNavigate();
 
-  // Check login status on component mount
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true';
     setIsLoggedIn(isLoggedIn);
   }, []);
 
   const handleAdminClick = () => {
-    if (isLoggedIn) {
-      navigate('/Admin');
-    } else {
-      setShowLogin(true);
-    }
+    setLoginError('');
+    setShowLogin(true);
   };
 
   const handleLogin = async () => {
+    if (!username || !password) {
+      setLoginError('Both fields are required.');
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+      return;
+    }
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, username, password);
-      const user = userCredential.user;
-
-      // On successful login, set session and close modal
       sessionStorage.setItem('adminLoggedIn', 'true');
       setIsLoggedIn(true);
       setShowLogin(false);
+      setLoginError('');
       navigate('/Admin');
     } catch (error) {
-      alert('Login failed: ' + error.message);
+      let errorMsg =
+        error.message.includes('auth/invalid-email') ||
+        error.message.includes('auth/user-not-found') ||
+        error.message.includes('auth/wrong-password')
+          ? 'Incorrect Username/Password'
+          : 'Login failed: ' + error.message;
+
+      setLoginError(errorMsg);
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
     }
   };
 
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      sessionStorage.removeItem('adminLoggedIn');
-      setIsLoggedIn(false);
-      navigate('/');
-    }).catch((error) => {
-      console.error('Error logging out: ', error);
-    });
+    signOut(auth)
+      .then(() => {
+        sessionStorage.removeItem('adminLoggedIn');
+        setIsLoggedIn(false);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Error logging out: ', error);
+      });
   };
 
   return (
     <div>
-      {/* Navbar Start */}
+      {/* Navbar */}
       <div className="container-fluid position-relative p-0">
         <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
           <Link to="/" className="navbar-brand p-0">
@@ -70,12 +85,17 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto py-0">
-              <Link to="/" className="nav-item nav-link">Home</Link>
-              <Link to="/About" className="nav-item nav-link">About</Link>
-              <Link to="/Emergency-Services" className="nav-item nav-link">Emergency</Link>
+              <Link to="/" className="nav-item nav-link">
+                Home
+              </Link>
+              <Link to="/About" className="nav-item nav-link">
+                About
+              </Link>
+              <Link to="/Emergency-Services" className="nav-item nav-link">
+                Emergency
+              </Link>
             </div>
 
-            {/* Dynamic Button: Login/Logout */}
             {isLoggedIn ? (
               <button onClick={handleLogout} className="btn btn-delete rounded-pill py-2 px-4">
                 Logout
@@ -93,7 +113,7 @@ function Header() {
       {showLogin && (
         <div className="modal-backdrop-custom" onClick={() => setShowLogin(false)}>
           <div className="modal-dialog-centered-custom" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content p-4" style={{ width: '100%', maxWidth: '400px' }}>
+            <div className={`modal-content p-4 ${shake ? 'shake' : ''}`} style={{ width: '100%', maxWidth: '400px' }}>
               <div className="modal-header">
                 <h5 className="modal-title">Admin Login</h5>
                 <button type="button" className="btn-close" onClick={() => setShowLogin(false)}></button>
@@ -101,24 +121,27 @@ function Header() {
               <div className="modal-body">
                 <input
                   type="text"
-                  className="form-control mb-2"
+                  className="form-control border-blue mb-2"
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  required
                 />
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control mb-2"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
+                {loginError && <div className="text-danger mt-2">{loginError}</div>}
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setShowLogin(false)}>
+                <button type="button" className="btn btn-delete" onClick={() => setShowLogin(false)}>
                   Cancel
                 </button>
-                <button type="button" className="btn btn-primary" onClick={handleLogin}>
+                <button type="button" className="btn btn-save" onClick={handleLogin}>
                   Login
                 </button>
               </div>

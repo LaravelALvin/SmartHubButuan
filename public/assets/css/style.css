@@ -11,6 +11,14 @@
     --dark: #14141F;
 }
 
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #0066ff; /* Blue border */
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Blue glow */
+  }
+
 .btn-primary{
     color: var(--light) !important;
 }
@@ -44,6 +52,12 @@ body {
 
 .btn-blue {
     background-color: #007bff;
+    color: white;
+    border: none;
+  }
+
+  .btn-cancel {
+    background-color: #f30202;
     color: white;
     border: none;
   }
@@ -158,6 +172,7 @@ h6 {
     transition: all 0.3s ease-in-out;
     font-weight: 500;
   }
+  
   
   .btn-delete:hover {
     background-color: #e63939;
@@ -634,5 +649,19 @@ a:hover{
       padding-left: 0;
     }
   }
+
+  /* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.5s ease;
+  }
+  
   
   

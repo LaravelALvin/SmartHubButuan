@@ -118,7 +118,7 @@ function About() {
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
             <div className="team-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="" alt="" />
+                <img className="img-fluid" src="assets/img/officials/Aquino.jpg" alt="" />
               </div>
               <div
                 className="position-relative d-flex justify-content-center"
@@ -127,15 +127,15 @@ function About() {
                 
               </div>
               <div className="text-center p-4">
-                <h5 className="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 className="mb-0">Cong. Jose S. Aquino II</h5>
+                <small>Congressman</small>
               </div>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
             <div className="team-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="" alt="" />
+                <img className="img-fluid" src="assets/img/officials/Andaya.jpg" alt="" />
               </div>
               <div
                 className="position-relative d-flex justify-content-center"
@@ -144,12 +144,226 @@ function About() {
              
               </div>
               <div className="text-center p-4">
-                <h5 className="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 className="mb-0">Joseph Omar O. Andaya</h5>
+                <small>SP Member</small>
               </div>
             </div>
           </div>
         </div>
+
+        <div className="row g-4">
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Nortega.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Cromwell P. Nortega</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Desiata.jpg" alt="RCL" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Reynante B. Desiata</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Unay.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Atty. John Gil S. Unay, Sr.</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Busa.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+             
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Cherry May G. Busa</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row g-4">
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Sanchez.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Atty. Ehrnest John C. Sanchez</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Rosario.jpg" alt="RCL" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Engr. Vincent Rizal C. Rosario</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Plaza.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Victor Vicente G. Plaza</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Gonzales.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+             
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Dr. Eduardo S. Gonzalez</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row g-4">
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Gado.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Arturo P. Gado</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Nalcot.jpg" alt="RCL" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Ferdinand E. Nalcot</h5>
+                <small>SP Member</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/Kap Gemma.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+                
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Gemma P. Tabada</h5>
+                <small>SP Member, President Liga ng mga Barangay</small>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div className="team-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/officials/SK Fed Pres.jpg" alt="" />
+              </div>
+              <div
+                className="position-relative d-flex justify-content-center"
+                style={{ marginTop: "-19px" }}
+              >
+             
+              </div>
+              <div className="text-center p-4">
+                <h5 className="mb-0">Joseph Manuel L. Morcilla</h5>
+                <small>SP Member, President SK Federation</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     {/* Team End */}
