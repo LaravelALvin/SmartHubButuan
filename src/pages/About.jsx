@@ -51,58 +51,24 @@ function About() {
           </div>
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
             <h1 className="mb-4">
-              Welcome to <span className="txt-blue">Tourist</span>
+              About <span className="txt-blue">BUTUAN CITY</span>
             </h1>
             <p className="mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit.
+            Butuan City is a vibrant urban center in the Caraga region of Mindanao, Philippines. 
+            Known as the “Home of the Balangay,” it is rich in history and culture, being one of 
+            the oldest settlements in the country. Nestled along the Agusan River, Butuan is a growing 
+            hub for commerce, education, and tourism in northeastern Mindanao.
             </p>
             <p className="mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-              lorem sit clita duo justo magna dolore erat amet
+            As the regional center of Caraga, Butuan plays a key role in driving economic and infrastructural 
+            development in the area. It blends modern progress with deep cultural roots, offering a unique experience
+             for both residents and visitors. Landmarks like the Balangay Shrine Museum, Bood Promontory Eco Park, 
+             and festivals such as the Balangay Festival reflect its proud heritage. With its strategic location, 
+             welcoming community, and commitment to sustainable growth, Butuan continues to thrive as a dynamic and 
+             forward-looking city in Mindanao.
             </p>
-            <div className="row gy-2 gx-4 mb-4">
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />
-                  First Class Flights
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />
-                  Handpicked Hotels
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />5 Star
-                  Accommodations
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />
-                  Latest Model Vehicles
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />
-                  150 Premium City Tours
-                </p>
-              </div>
-              <div className="col-sm-6">
-                <p className="mb-0">
-                  <i className="fa fa-arrow-right txt-blue me-2" />
-                  24/7 Service
-                </p>
-              </div>
-            </div>
-            <a className="btn btn-blue py-3 px-5 mt-2" href="">
-              Read More
-            </a>
+            
+             
           </div>
         </div>
       </div>
@@ -112,56 +78,40 @@ function About() {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h1 className="mb-5">Meet Our Guide</h1>
+          <h1 className="mb-5">OFFICIALS</h1>
         </div>
         <div className="row g-4">
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div className="team-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="" alt="" />
+                <img className="img-fluid" src="assets/img/officials/RCL.jpg" alt="" />
               </div>
               <div
                 className="position-relative d-flex justify-content-center"
                 style={{ marginTop: "-19px" }}
               >
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-instagram" />
-                </a>
+                
               </div>
               <div className="text-center p-4">
-                <h5 className="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 className="mb-0">Engr. Ronnie Vicente C. Lagnada</h5>
+                <small>City Mayor</small>
               </div>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div className="team-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="" alt="" />
+                <img className="img-fluid" src="assets/img/officials/Fortun.jpg" alt="RCL" />
               </div>
               <div
                 className="position-relative d-flex justify-content-center"
                 style={{ marginTop: "-19px" }}
               >
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-instagram" />
-                </a>
+                
               </div>
               <div className="text-center p-4">
-                <h5 className="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 className="mb-0">Atty. Lawrence Lemuel H. Fortun</h5>
+                <small>City Vice Mayor</small>
               </div>
             </div>
           </div>
@@ -174,15 +124,7 @@ function About() {
                 className="position-relative d-flex justify-content-center"
                 style={{ marginTop: "-19px" }}
               >
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-instagram" />
-                </a>
+                
               </div>
               <div className="text-center p-4">
                 <h5 className="mb-0">Full Name</h5>
@@ -199,15 +141,7 @@ function About() {
                 className="position-relative d-flex justify-content-center"
                 style={{ marginTop: "-19px" }}
               >
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a className="btn btn-square mx-1" href="">
-                  <i className="fab fa-instagram" />
-                </a>
+             
               </div>
               <div className="text-center p-4">
                 <h5 className="mb-0">Full Name</h5>
