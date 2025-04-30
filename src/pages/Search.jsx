@@ -48,7 +48,7 @@ function Search() {
               collection: colName,
             }))
             .filter((doc) => {
-              const name = (doc.Name || "").toLowerCase();
+              const name = (doc.name || "").toLowerCase();
               const description = (doc.description || "").toLowerCase();
               return name.includes(keyword.toLowerCase()) || description.includes(keyword.toLowerCase());
             });
