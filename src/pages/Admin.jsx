@@ -18,6 +18,7 @@ function Admin() {
   const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true';
@@ -26,12 +27,21 @@ function Admin() {
     }
   }, [navigate]);
 
+  const cancelChangePassword = () => {
+    setShowChangePassword(false);
+    setOldPassword('');
+    setNewPassword('');
+    setConfirmPassword('');
+    setMessage('');
+  }
+
   const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
       setMessage('New passwords do not match.');
       return;
     }
-    setLoading(true);
+
+    setIsLoading(true);
     try {
       const credential = EmailAuthProvider.credential(user.email, oldPassword);
       await reauthenticateWithCredential(user, credential);
@@ -42,9 +52,13 @@ function Admin() {
       setNewPassword('');
       setConfirmPassword('');
     } catch (error) {
-      setMessage(`Error: ${error.message}`);
+      if (error.message.includes('auth/invalid-credential')) {
+          setMessage(`Invalid old password`);
+      }
+      
     }
-    setLoading(false);
+    setIsLoading(false);
+
   };
 
   const handleSendOtp = () => {
@@ -249,8 +263,8 @@ function Admin() {
           </div>
           {/* Buttons for Change Info */}
           <div className="mt-5 text-left">
-              <button className="btn btn-primary me-3" onClick={() => setShowChangePassword(true)}>Change Password</button>
-              <button className="btn btn-secondary me-3" onClick={() => setShowChangeEmail(true)}>Change Email</button>            
+              <button className="btn btn-blue me-3" onClick={() => setShowChangePassword(true)}>Change Password</button>
+              <button className="btn btn-blue me-3" onClick={() => setShowChangeEmail(true)}>Change Email</button>            
           </div>
         </div>
       </div>
@@ -273,8 +287,16 @@ function Admin() {
                 {loading && <p className="text-muted">Processing...</p>}
               </div>
               <div className="modal-footer">
-                <button className="btn btn-delete" onClick={() => setShowChangePassword(false)}>Cancel</button>
-                <button className="btn btn-save" onClick={handlePasswordChange} disabled={!oldPassword || !newPassword || !confirmPassword || loading}>Update</button>
+                <button className="btn btn-delete" onClick={() => {
+                  setShowChangePassword(false);
+                  cancelChangePassword();
+                }}>Cancel</button>
+               
+                {isLoading ? (
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
+                  ) : (
+                    <button className="btn btn-save" onClick={handlePasswordChange} disabled={!oldPassword || !newPassword || !confirmPassword || loading}>Update</button>
+                  )}
               </div>
             </div>
           </div>
@@ -292,7 +314,7 @@ function Admin() {
               </div>
               <div className="modal-body">
                 <input type="email" className="form-control mb-2" placeholder="New Email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} required />
-                <button className="btn btn-sm btn-outline-primary mb-2" onClick={handleSendOtp}>Send OTP</button>
+                <button className="btn btn-blue btn-outline-primary mb-2" onClick={handleSendOtp}>Send OTP</button>
                 {otpSent && (
                   <input type="text" className="form-control" placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} required />
                 )}

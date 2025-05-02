@@ -339,7 +339,7 @@ function About() {
               >
                 
               </div>
-              <div className="text-center p-4">
+              <div className="text-center p-3">
                 <h5 className="mb-0">Gemma P. Tabada</h5>
                 <small>SP Member, President Liga ng mga Barangay</small>
               </div>

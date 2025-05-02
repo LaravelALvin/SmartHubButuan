@@ -14,9 +14,10 @@ function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true';
-    setIsLoggedIn(isLoggedIn);
-  }, []);
+    // Check sessionStorage on component load
+    const isLoggedInStatus = sessionStorage.getItem('adminLoggedIn') === 'true';
+    setIsLoggedIn(isLoggedInStatus);
+  }, []); // Only run once when the component is mounted
 
   const handleAdminClick = () => {
     setLoginError('');
@@ -34,7 +35,7 @@ function Header() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, username, password);
       sessionStorage.setItem('adminLoggedIn', 'true');
-      setIsLoggedIn(true);
+      setIsLoggedIn(true); // Update state after successful login
       setShowLogin(false);
       setLoginError('');
       navigate('/Admin');
@@ -55,8 +56,8 @@ function Header() {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        sessionStorage.removeItem('adminLoggedIn');
-        setIsLoggedIn(false);
+        sessionStorage.removeItem('adminLoggedIn'); // Clear session storage on logout
+        setIsLoggedIn(false); // Update state after logout
         navigate('/');
       })
       .catch((error) => {
@@ -95,16 +96,6 @@ function Header() {
                 Emergency
               </Link>
             </div>
-
-            {isLoggedIn ? (
-              <button onClick={handleLogout} className="btn btn-delete rounded-pill py-2 px-4">
-                Logout
-              </button>
-            ) : (
-              <button onClick={handleAdminClick} className="btn btn-blue rounded-pill py-2 px-4">
-                Admin Login
-              </button>
-            )}
           </div>
         </nav>
       </div>

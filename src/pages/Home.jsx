@@ -5,6 +5,33 @@ import { collection, getDocs, doc, setDoc, updateDoc, deleteDoc } from "firebase
 import { db } from "../components/Firebase";
 
 export default function Home() {
+
+  
+  const formatTimeTo12Hour = (timeStr) => {
+    if (!timeStr || timeStr.includes("AM") || timeStr.includes("PM")) {
+      // Already formatted
+      return timeStr;
+    }
+  
+    const [hour, minute] = timeStr.split(":");
+    const h = parseInt(hour);
+    const ampm = h >= 12 ? "PM" : "AM";
+    const hour12 = h % 12 === 0 ? 12 : h % 12;
+    return `${hour12}:${minute} ${ampm}`;
+  };
+
+  function convertTo24HourFormat(time) {
+    const [timeString, period] = time.split(' ');
+    let [hours, minutes] = timeString.split(':');
+    
+    if (period === 'AM' && hours === '12') hours = '00'; // Special case for 12 AM
+    else if (period === 'PM' && hours !== '12') hours = String(Number(hours) + 12); // Convert PM hours
+    
+    hours = hours.padStart(2, '0');
+    minutes = minutes.padStart(2, '0');
+    return `${hours}:${minutes}`;
+  }
+  
     const [packagesData, setPackagesData] = useState([]);
 
   const navigate = useNavigate();
@@ -52,16 +79,23 @@ export default function Home() {
               </p>
               <div className="position-relative w-75 mx-auto animated slideInDown">
                 <input
-                  className="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5"
+                  className="form-control border-0 rounded-pill w-100 py-3 ps-4"
                   type="text"
                   placeholder="Eg: Shopping"
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
+                  style={{ paddingRight: '130px' }} // give space for the button
                 />
                 <button
                   type="button"
-                  className="btn btn-blue rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                  style={{ marginTop: 7 }}
+                  className="btn btn-blue position-absolute top-0 end-0 py-3 px-4"
+                  style={{
+                    height: '100%',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                    borderTopRightRadius: '50rem',
+                    borderBottomRightRadius: '50rem',
+                  }}
                   onClick={handleSearch}
                 >
                   Search
@@ -556,41 +590,69 @@ export default function Home() {
           <h1 className="mb-5">Emergency Services</h1>
         </div>
           <div className="row g-4 justify-content-center">
-            {packagesData.map((pkg, index) => (
+          {packagesData.map((pkg, index) => {
+            // Convert opening and closing times to 24-hour format
+            const openingTime24 = convertTo24HourFormat(pkg.openingTime);
+            const closingTime24 = convertTo24HourFormat(pkg.closingTime);
+
+            const currentTime = new Date();
+            const currentTime24 = `${currentTime.getHours().toString().padStart(2, '0')}:${currentTime.getMinutes().toString().padStart(2, '0')}`;
+
+            const isOpen = currentTime24 >= openingTime24 && currentTime24 <= closingTime24;
+
+            return (
               <div key={pkg.id} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`${0.1 + index * 0.2}s`}>
                 <div className="package-item d-flex flex-column">
                   <div className="overflow-hidden position-relative" style={{ height: "250px" }}>
-                    <img 
-                      className="img-fluid w-100 h-100" 
-                      src={pkg.image || "assets/img/restaurant-2.jpg"} 
-                      alt={pkg.location} 
-                      style={{ objectFit: "cover", height: "100%" }} // Ensure images are resized
-                    />
-                    {}
+                    <img className="img-fluid w-100 h-100" src={pkg.image || "assets/img/restaurant-2.jpg"} alt={pkg.location} style={{ objectFit: "cover", height: "100%" }} />
+
+                    <div
+                      className={`position-absolute top-0 start-0 m-2 py-2 px-4 ${isOpen ? 'bg-open' : 'bg-close'}`}
+                      style={{ fontSize: "1rem", color: "white", borderRadius: "25px" }}
+                    >
+                      {isOpen ? "Now Open" : "Closed"}
+                    </div>
                   </div>
                   <div className="d-flex border-bottom">
-                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-map-marker-alt txt-blue me-2" />{pkg.location}</small>
-                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-calendar-alt txt-blue me-2" />{pkg.duration}</small>
+                    <small className="flex-fill text-center border-end py-2">
+                      <i className="fa fa-map-marker-alt txt-blue me-2" />
+                      {pkg.location}
+                    </small>
+                    <small className="flex-fill text-center border-end py-2">
+                      <i className="fa fa-clock txt-blue me-2" />
+                      {pkg.openingTime} - {pkg.closingTime}
+                    </small>
                   </div>
                   <div className="text-center p-4 flex-grow-1">
-                    <h3 className="mb-0">{pkg.Name}</h3>
-                    <h3 className="mb-0">{pkg.contact}</h3>
-                    <p className="description" style={{ 
-                      textOverflow: "ellipsis", 
-                      whiteSpace: "nowrap", 
-                      overflow: "hidden" 
-                    }}>
+                    <h3 className="mb-0">{pkg.name}</h3>
+                    <h3 className="mb-0">
+                      <i className="fa fa-phone-alt me-2 txt-blue" />
+                      {pkg.contact}
+                    </h3>
+                    <p className="description text-muted"
+                      style={{
+                        fontSize: "0.8rem",
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        WebkitLineClamp: 1,
+                      }}
+                    >
                       {pkg.description}
                     </p>
                     <div className="d-flex justify-content-center mb-2">
-                      <a href="#" className="btn btn-sm btn-blue px-5" style={{ borderRadius: "15px 15px 15px 15px" }}>Read More</a>
+                      <Link to={`/view/${pkg.name.toLowerCase().replace(/\s+/g, "-")}`}
+                      state={{ id: pkg.id, category: "EmergencyServices"  }}
+                      className="btn btn-sm btn-blue px-5" 
+                      style={{ borderRadius: "15px" }}>
+                        Read More
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-
-            {}
+            );
+          })}
           </div>
         </div>
       </div>

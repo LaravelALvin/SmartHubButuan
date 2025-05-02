@@ -28,7 +28,25 @@ function ViewContent() {
     }
   }, [id, category]);
 
-  if (!entry) return <div className="container py-5">Loading...</div>;
+  if (!entry) return (
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-8 d-flex align-items-center">
+          <div className="me-4">
+            <div className="skeleton-image mb-3"></div>
+          </div>
+          <div className="flex-grow-1">
+            <div className="skeleton-text skeleton-title mb-3"></div>
+            <div className="skeleton-text mb-2" style={{ width: "80%" }}></div>
+            <div className="skeleton-text mb-2" style={{ width: "60%" }}></div>
+            <div className="skeleton-text mb-2" style={{ width: "70%" }}></div>
+            <div className="skeleton-text mb-2" style={{ width: "50%" }}></div>
+            <div className="skeleton-text mb-2" style={{ width: "90%" }}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <>

@@ -4,6 +4,7 @@ import { db } from "../components/Firebase";
 import { Link } from "react-router-dom";
 
 function FoodAndDining() {
+  const [loading, setLoading] = useState(true);
   const [packagesData, setPackagesData] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -23,7 +24,7 @@ function FoodAndDining() {
   useEffect(() => {
     const checkLogin = sessionStorage.getItem("adminLoggedIn") === "true";
     setIsAdmin(checkLogin);
-
+    
     const fetchData = async () => {
       try {
         const colRef = collection(db, "FoodAndDining");
@@ -33,14 +34,16 @@ function FoodAndDining() {
           const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setPackagesData(data);
         } else {
+          setLoading(false);
           console.log("No data found in FoodAndDining collection.");
         }
       } catch (error) {
+        setLoading(false);
         console.error("Error fetching data:", error.message);
       }
     };
-
     fetchData();
+    setLoading(false);
   }, []);
 
   const formatTime = (timeStr) => {
@@ -71,8 +74,8 @@ function FoodAndDining() {
       id: "",
       name: "",
       location: "",
-      openingTime: "",
-      closingTime: "",
+      openingTime: "8:00 AM",
+      closingTime: "5:00 PM",
       contact: "",
       price: "",
       description: "",
@@ -151,6 +154,20 @@ function FoodAndDining() {
     setShowDeleteConfirm(false);
   };
 
+  const renderSkeleton = () => {
+    return Array.from({ length: 6 }).map((_, index) => (
+      <div key={index} className="col-lg-4 col-md-6">
+        <div className="package-item d-flex flex-column bg-light p-3" style={{ borderRadius: '10px' }}>
+          <div className="skeleton-image mb-3" style={{ height: "250px", backgroundColor: "#e0e0e0" }} />
+          <div className="skeleton-text mb-2" style={{ height: "20px", width: "60%", backgroundColor: "#d0d0d0" }} />
+          <div className="skeleton-text mb-2" style={{ height: "14px", width: "50%", backgroundColor: "#d0d0d0" }} />
+          <div className="skeleton-text mb-2" style={{ height: "14px", width: "50%", backgroundColor: "#d0d0d0" }} />
+        </div>
+      </div>
+    ));
+  };
+  
+  
   return (
     <div>
       <div className="container-fluid bg-primary py-5 mb-5 hero-header">
@@ -172,7 +189,7 @@ function FoodAndDining() {
       <div className="container-xxl py-5">
         <div className="container">
           <div className="row g-4 justify-content-center">
-          {packagesData.map((pkg, index) => {
+          {loading ? renderSkeleton() : packagesData.map((pkg, index) => {
             // Convert opening and closing times to 24-hour format
             const openingTime24 = convertTo24HourFormat(pkg.openingTime);
             const closingTime24 = convertTo24HourFormat(pkg.closingTime);

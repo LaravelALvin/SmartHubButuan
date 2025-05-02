@@ -662,6 +662,34 @@ a:hover{
   .shake {
     animation: shake 0.5s ease;
   }
+
+  .skeleton-image {
+    width: 250px;
+    height: 180px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .skeleton-text {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .skeleton-title {
+    width: 50%;
+    height: 30px;
+  }
+  
+  @keyframes pulse {
+    0% { background-color: #e0e0e0; }
+    50% { background-color: #f0f0f0; }
+    100% { background-color: #e0e0e0; }
+  }
+  
+  
   
   
   
