@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './Firebase'; // Adjust path if needed
+<link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
 
 function Header() {
   const [showLogin, setShowLogin] = useState(false);

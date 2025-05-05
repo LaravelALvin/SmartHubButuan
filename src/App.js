@@ -28,21 +28,21 @@ export default function App() {
     <div>
         <Header />
         <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/error' element={<Error/>}/>
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='Food-and-Dining' element={<FoodAndDining/>}/>
-        <Route path='Hotel-and-Lodging' element={<HotelAndLodging/>}/>
-        <Route path='Medical-Services' element={<MedicalServices/>}/>
-        <Route path='Public-Transportation' element={<PublicTransportation/>}/>
-        <Route path='Education' element={<Education/>}/>
-        <Route path='Emergency-Services' element={<EmergencyServices/>}/>
-        <Route path='Government-Services' element={<GovernmentServices/>}/>
-        <Route path='/search' element={<Search/>}/>
-        <Route path="/view/:name" element={<ViewContent />} />
-        <Route path='*' element={<Error />} />
-        </Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/error' element={<Error/>}/>
+          <Route path='/admin' element={<Admin/>}/>
+          <Route path='Food-and-Dining' element={<FoodAndDining/>}/>
+          <Route path='Hotel-and-Lodging' element={<HotelAndLodging/>}/>
+          <Route path='Medical-Services' element={<MedicalServices/>}/>
+          <Route path='Public-Transportation' element={<PublicTransportation/>}/>
+          <Route path='Education' element={<Education/>}/>
+          <Route path='Emergency-Services' element={<EmergencyServices/>}/>
+          <Route path='Government-Services' element={<GovernmentServices/>}/>
+          <Route path='search' element={<Search/>}/>
+          <Route path="view/:name" element={<ViewContent />} />
+          <Route path='*' element={<Error />} />
+          </Routes>
         <Footer />
     </div>
   )

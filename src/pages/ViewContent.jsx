@@ -3,16 +3,18 @@ import { useLocation } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../components/Firebase";
 
+
 function ViewContent() {
   const [entry, setEntry] = useState(null);
   const location = useLocation();
   const { id, category } = location.state || {};  // Get both `id` and `category`
-
+  console.log("State:", location.state);
   useEffect(() => {
     const fetchEntry = async () => {
       try {
         const docRef = doc(db, category, id); // Dynamically use category
         const docSnap = await getDoc(docRef);
+        console.log("Loading!");
         if (docSnap.exists()) {
           setEntry(docSnap.data());
         } else {

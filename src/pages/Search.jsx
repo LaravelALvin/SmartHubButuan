@@ -384,24 +384,10 @@ function Search() {
                                                     {pkg.description}
                                                 </p>
                                                 <div className="d-flex justify-content-center mb-2">
-                                                    <Link
-                                                        to={`/view/${pkg.name
-                                                            .toLowerCase()
-                                                            .replace(
-                                                                /\s+/g,
-                                                                "-"
-                                                            )}`}
-                                                        state={{
-                                                            id: pkg.id,
-                                                            category:
-                                                                "PublicTransportation",
-                                                        }}
-                                                        className="btn btn-sm btn-blue px-5"
-                                                        style={{
-                                                            borderRadius:
-                                                                "15px",
-                                                        }}
-                                                    >
+                                                    <Link to={`/view/${pkg.name.toLowerCase().replace(/\s+/g, "-")}`}
+                                                        state={{ id: pkg.id, category: "FoodAndDining"  }}
+                                                        className="btn btn-sm btn-blue px-5" 
+                                                        style={{ borderRadius: "15px" }}>
                                                         Read More
                                                     </Link>
                                                 </div>
